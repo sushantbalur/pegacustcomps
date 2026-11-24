@@ -1,0 +1,73 @@
+{
+  "name": "Areteans_SushLib_Mancreate",
+  "label": "MCreate",
+  "description": "Manual creation check",
+  "organization": "Areteans",
+  "version": "1.0.0",
+  "library": "SushLib",
+  "componentKey": "Areteans_SushLib_Mancreate",
+  "type": "Field",
+  "subtype": "Text",
+  "subtypeLabel": "Text",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Label value",
+      "format": "TEXT"
+    },
+    {
+      "name": "placeholder",
+      "label": "Placeholder",
+      "format": "TEXT"
+    },
+    {
+      "name": "visibility",
+      "label": "Visible",
+      "format": "VISIBILITY"
+    },
+    {
+      "name": "disabled",
+      "label": "Disabled",
+      "format": "DISABLED"
+    },
+    {
+      "name": "required",
+      "label": "Required",
+      "format": "REQUIRED"
+    },
+    {
+      "label": "Advanced",
+      "format": "GROUP",
+      "collapsible": true,
+      "properties": [
+        {
+          "name": "testId",
+          "label": "Test ID",
+          "format": "TEXT",
+          "ignorePattern": "[^-_\\p{N}\\p{L}]",
+          "includeAnnotations": false
+        }
+      ]
+    },
+    {
+      "format": "LABEL",
+      "label": "About",
+      "name": "PegaAboutLabel",
+      "variant": "h3"
+    },
+    {
+      "format": "LABEL",
+      "label": "Areteans_SushLib 1.0.0, Tue Nov 24 2026, 26.1.1-105720",
+      "name": "PegaAboutData",
+      "variant": "primary"
+    }
+  ],
+  "defaultConfig": {
+    "detailFVLItem": true,
+    "isFormWidth": false,
+    "isContainerWidth": false
+  },
+  "buildDate": "2026-11-24T07:24:12.503Z",
+  "infinityVersion": "26.1.1-105720",
+  "packageCosmosVersion": "9.5.5-8"
+}

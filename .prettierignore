@@ -1,0 +1,25 @@
+# dx-template:start
+# Docs and templates that are not formatted with Prettier
+**/*.md
+**/*.mustache
+**/*.txt
+**/*.npmrc
+**/*.gitignore
+**/LICENSE
+
+# CLI-managed state, rewritten by the CLI with its own formatting
+/store/
+/tasks.config.json
+
+# Library build output: <Org>_<Library>/<version>/ folders
+/*_*/[0-9]*.[0-9]*.[0-9]*/
+/build/
+/dist/
+/coverage/
+# dx-template:end
+# ai-agents:start
+.claude/
+.agents/
+.gemini/
+AGENTS.md
+# ai-agents:end

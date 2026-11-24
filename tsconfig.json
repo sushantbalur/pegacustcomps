@@ -1,0 +1,26 @@
+{
+  "include": ["./**/*", ".storybook/**/*"],
+  "exclude": ["**/*.mjs"],
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "newLine": "lf",
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "target": "ES2024",
+    "noEmit": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@pega/pcore-pconnect-typedefs/*": ["./node_modules/@pega/pcore-pconnect-typedefs/*"]
+    },
+    "esModuleInterop": true,
+    "types": ["jest", "node"]
+  }
+}
