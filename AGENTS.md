@@ -50,6 +50,13 @@ Ask "Approve this component contract?" and put the draft below it, one `- **Labe
 - **Third-party libraries:** none
 ```
 
+## Git
+
+- Never commit to `master`; branch from the latest `master` as `feat/`, `fix/`, `chore/` or `docs/<short-description>`.
+- Conventional Commits (`<type>(<scope>): <subject>`); never commit secrets, `.env` files or `keys/`.
+- Never merge your own PR or approve PRs for human reviewers.
+- Ask first before changing `.github/workflows/`, repository permissions or branch protection. Full workflow: the `git-ops` skill.
+
 ## Routing
 
 Prefer the most specific skill. Every subtype skill builds on its type skill, and all of them use the shared material in [create-dx-component](.claude/skills/create-dx-component/).
@@ -58,7 +65,7 @@ Prefer the most specific skill. Every subtype skill builds on its type skill, an
 - **Template** (fallback `template`): `form` editable layout · `details` read-only label-value summary · `page` whole-page region layout
 - **Widget** (fallback `widget`): `case` case-scoped chart, KPI or related records · `page-widget` dashboard or portal block without case context
 - **Presentation** (`presentation`): replaces the whole case view (`CASEVIEW`, `WSSCASEVIEW`). A read-only badge or formatted value is a `field` with `DISPLAY_ONLY`, or a `widget`.
-- **Workflow:** `plan-dx-component` plan from requirements or port from another design system · `update-dx-component` change, rename or retire an existing component · `validate-component` build, test, lint · `review-component` audit a finished component · `publish-library` authenticate, publish, versions · `create-dx-component` type unclear or several types · `generate-component-set` many components at once · `identify-components` decide from a screenshot or mockup
+- **Workflow:** `plan-dx-component` plan from requirements or port from another design system · `update-dx-component` change, rename or retire an existing component · `validate-component` build, test, lint · `review-component` audit a finished component · `publish-library` authenticate, publish, versions · `create-dx-component` type unclear or several types · `generate-component-set` many components at once · `identify-components` decide from a screenshot or mockup · `git-ops` branch, commit, push, PR
 - **PCore / PConnect** (use whenever a component calls these APIs): `pconnect-assignment-lifecycle` assignments, cases, attachments, confirm-before-destroy · `pconnect-forms-and-fields` validation, dependent fields, autosave · `pconnect-data-subscriptions` data pages, pub/sub, real-time updates · `pconnect-case-collaboration` participants, followers, tags, feed · `pconnect-lists-and-views` repeating rows, list views, containers · `pconnect-navigation-locale-genai` deep links, locale, GenAI assistant
 
 ## Building a component

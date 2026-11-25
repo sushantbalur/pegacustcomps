@@ -165,3 +165,6 @@ vite.config.ts.timestamp-*
 
 # Library snapshot zips embed a copy of the local tasks.config.json
 /store/**/*.zip
+
+# Local junction to .claude/skills; recreate after cloning
+/.agents/skills
