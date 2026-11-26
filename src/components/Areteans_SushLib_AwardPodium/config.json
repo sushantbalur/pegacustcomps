@@ -1,0 +1,61 @@
+{
+  "name": "Areteans_SushLib_AwardPodium",
+  "label": "Award Podium",
+  "description": "Award podium showing Employee of the Month, Star of the Week and Inspiration of the Day",
+  "organization": "Areteans",
+  "version": "1.0.0",
+  "library": "SushLib",
+  "componentKey": "Areteans_SushLib_AwardPodium",
+  "type": "Widget",
+  "subtype": "PAGE",
+  "subtypeLabel": "PAGE",
+  "icon": "OneColumnPage.svg",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Label value",
+      "format": "TEXT"
+    },
+    {
+      "name": "hideLabel",
+      "label": "Hide label",
+      "format": "BOOLEAN"
+    },
+    {
+      "label": "Award winners",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "employeeOfMonth",
+          "label": "Employee of the month",
+          "format": "TEXT"
+        },
+        {
+          "name": "starOfWeek",
+          "label": "Star of the week",
+          "format": "TEXT"
+        },
+        {
+          "name": "inspirationOfDay",
+          "label": "Inspiration of the day",
+          "format": "TEXT"
+        }
+      ]
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L Our Stars",
+    "hideLabel": false
+  }
+}
