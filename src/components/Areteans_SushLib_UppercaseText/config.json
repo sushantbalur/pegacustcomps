@@ -1,7 +1,7 @@
 {
   "name": "Areteans_SushLib_UppercaseText",
   "label": "Uppercase Text",
-  "description": "Single-line text input that converts typed text to uppercase",
+  "description": "Auto-Converts to UCase. Non text disallowed",
   "organization": "Areteans",
   "version": "1.0.0",
   "library": "SushLib",

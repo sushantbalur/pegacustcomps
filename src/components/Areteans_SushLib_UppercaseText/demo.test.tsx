@@ -21,8 +21,14 @@ test('converts typed text to uppercase without committing', () => {
   const storyArgs: Record<string, unknown> = { onTriggerFieldChange };
   render(<Base {...storyArgs} />);
   fireEvent.change(getInput(), { target: { value: 'abc-12x' } });
-  expect(getInput().value).toBe('ABC-12X');
+  expect(getInput().value).toBe('ABCX');
   expect(onTriggerFieldChange).not.toHaveBeenCalled();
+});
+
+test('ignores numbers and special characters but keeps underscores', () => {
+  render(<Base />);
+  fireEvent.change(getInput(), { target: { value: 'a1_b!c 2@' } });
+  expect(getInput().value).toBe('A_BC');
 });
 
 test('commits the uppercase value on blur', () => {
