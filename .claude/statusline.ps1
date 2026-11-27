@@ -20,4 +20,38 @@ if ($dir) {
 }
 $branchSeg = ''
 if ($branch) { $branchSeg = " | $esc[35m$branch$esc[0m" }
-[Console]::Out.Write("$esc[36m$model$esc[0m$branchSeg | ctx $esc[${c}m[$bar] $pct%$esc[0m")
+
+# Session elapsed time (HH:mm), anchored to a start stamp saved per session id
+$timeSeg = ''
+$sid = $j.session_id
+if ($sid) {
+  $stampFile = Join-Path $env:TEMP "claude-statusline-$sid.start"
+  $now = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+  $start = $null
+  if (Test-Path $stampFile) {
+    $parsed = 0L
+    if ([long]::TryParse((Get-Content $stampFile -Raw).Trim(), [ref]$parsed)) { $start = $parsed }
+  }
+  if ($null -eq $start) {
+    $start = $now
+    Set-Content -Path $stampFile -Value $start -Encoding ASCII
+  }
+  $secs = [math]::Max(0, $now - $start)
+  $elapsed = '{0:00}:{1:00}' -f [math]::Floor($secs / 3600), [math]::Floor(($secs % 3600) / 60)
+  $timeSeg = " | $esc[34m$elapsed$esc[0m"
+}
+
+# Token usage
+function Format-Tok($n) {
+  $n = [double]$n
+  if ($n -ge 1000000) { return ('{0:0.0}M' -f ($n / 1000000)) }
+  if ($n -ge 1000) { return ('{0:0.0}k' -f ($n / 1000)) }
+  return ('{0:0}' -f $n)
+}
+$tokIn = $j.context_window.total_input_tokens
+$tokOut = $j.context_window.total_output_tokens
+if ($null -eq $tokIn) { $tokIn = 0 }
+if ($null -eq $tokOut) { $tokOut = 0 }
+$tokSeg = " | tok in $(Format-Tok $tokIn) out $(Format-Tok $tokOut)"
+
+[Console]::Out.Write("$esc[36m$model$esc[0m$branchSeg$timeSeg | ctx $esc[${c}m[$bar] $pct%$esc[0m$tokSeg")
