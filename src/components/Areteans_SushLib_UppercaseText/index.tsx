@@ -16,6 +16,9 @@ interface StateProps {
   value: string;
 }
 
+// Only letters and underscore are allowed; anything else is dropped silently
+const DISALLOWED_CHARS = /[^\p{L}_]/gu;
+
 const isTrue = (flag: unknown) => flag === true || flag === 'true';
 
 function AreteansSushLibUppercaseText(props: AreteansSushLibUppercaseTextProps) {
@@ -46,7 +49,7 @@ function AreteansSushLibUppercaseText(props: AreteansSushLibUppercaseTextProps) 
   const propName = (pConn.getStateProps() as StateProps).value;
 
   const normalize = (raw: string) => {
-    const upper = raw.toUpperCase();
+    const upper = raw.replace(DISALLOWED_CHARS, '').toUpperCase();
     return limit === undefined ? upper : upper.slice(0, limit);
   };
 
