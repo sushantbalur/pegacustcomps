@@ -57,7 +57,7 @@
     },
     {
       "format": "LABEL",
-      "label": "Areteans_SushLib 1.0.0, Tue Nov 24 2026, 26.1.1-105720",
+      "label": "Areteans_SushLib 1.0.0, Thu Nov 26 2026, 26.1.1-105720",
       "name": "PegaAboutData",
       "variant": "primary"
     }
@@ -67,7 +67,7 @@
     "isFormWidth": false,
     "isContainerWidth": false
   },
-  "buildDate": "2026-11-24T07:24:12.503Z",
+  "buildDate": "2026-11-26T16:00:38.083Z",
   "infinityVersion": "26.1.1-105720",
   "packageCosmosVersion": "9.5.5-8"
 }
